@@ -213,6 +213,19 @@ The easiest way to deploy your Next.js app:
 2. Import your repository in Vercel
 3. Deploy with zero configuration
 
+### GitHub Pages
+Deploy as a static site to GitHub Pages:
+
+1. **Enable GitHub Pages** in your repository settings
+2. **Set source** to GitHub Actions
+3. **Update basePath** in `next.config.ts` to match your repo name
+4. **Run deployment**:
+   - Manual: Go to Actions tab and run "Deploy Next.js site to Pages"
+   - Automatic: Uncomment the push trigger in `.github/workflows/deploy-pages.yml`
+5. **Build locally** for static export: `pnpm build:static`
+
+**Note**: API routes are not supported in static export mode.
+
 ### Other Platforms
 - **Netlify**: [Deploy to Netlify](https://docs.netlify.com/frameworks/next-js/)
 - **AWS Amplify**: [Deploy to AWS](https://aws.amazon.com/amplify/)

@@ -1,17 +1,17 @@
-# Sample workflow for building and deploying a Next.js site to GitHub Pages
+# Workflow for building and deploying a Next.js site to GitHub Pages
 #
 # To use this workflow:
-# 1. Rename this file from deploy-pages.yml.example to deploy-pages.yml
-# 2. Update next.config.ts to add output: 'export'
-# 3. Enable GitHub Pages in your repository settings
-# 4. Set source to GitHub Actions
+# 1. Enable GitHub Pages in your repository settings
+# 2. Set source to GitHub Actions
+# 3. Update the basePath in next.config.ts if needed
 #
 name: Deploy Next.js site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+  # Runs on pushes targeting the default branch (disabled by default)
+  # Uncomment the next 2 lines to enable automatic deployment on push
+  # push:
+  #   branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -83,7 +83,7 @@ jobs:
         run: pnpm install --frozen-lockfile
         
       - name: Build with Next.js
-        run: pnpm build
+        run: pnpm build:static
         env:
           NEXT_TELEMETRY_DISABLED: 1
           
