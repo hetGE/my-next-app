@@ -47,6 +47,8 @@ export default defineConfig([
                     "app/**/\\(.*\\)": "NEXT_JS_APP_ROUTER_CASE",
                     "app/**/\\[.*\\]": "NEXT_JS_APP_ROUTER_CASE",
                     "app/**/_*": "NEXT_JS_APP_ROUTER_CASE",
+                    // Allow temporary folders (for build process)
+                    "app/**/*.tmp": "NEXT_JS_APP_ROUTER_CASE",
                     // Enforce kebab-case for regular folders
                     "app/**": "KEBAB_CASE",
                     "components/**": "KEBAB_CASE",
