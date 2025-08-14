@@ -138,20 +138,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - git commit messages must follow conventional git format with icons, for example: "✨ feat: add awesome feature".
 
-| Type     | Emoji   | Code                  | Description                                     |
-| -------- | ------- | --------------------- | ----------------------------------------------- |
-| init     | 🎉      | :tada:                | Initial commit                                  |
-| feat     | ✨      | :sparkles:            | New feature                                     |
-| fix      | 🐛      | :bug:                 | Bug fix                                         |
-| docs     | 📚      | :books:               | Documentation only changes                      |
-| style    | 💎      | :gem:                 | Code style changes (formatting, semicolons)     |
-| refactor | 🔨      | :hammer:              | Code refactoring                                |
-| perf     | 🚀      | :rocket:              | Performance improvements                        |
-| test     | 🚨      | :rotating_light:      | Adding or updating tests                        |
-| build    | 📦      | :package:             | Build system or external dependencies           |
-| ci       | 👷      | :construction_worker: | CI configuration files and scripts              |
-| chore    | 🔧      | :wrench:              | Other changes that don't modify src or test     |
-| revert   | ⏪      | :rewind:              | Reverts a previous commit                       |
+| Type     | Emoji   | Code                    | Description                                     |
+| -------- | ------- | ----------------------- | ----------------------------------------------- |
+| init     | 🎉      | `:tada:`                | Initial commit                                  |
+| feat     | ✨      | `:sparkles:`            | New feature                                     |
+| fix      | 🐛      | `:bug:`                 | Bug fix                                         |
+| docs     | 📚      | `:books:`               | Documentation only changes                      |
+| style    | 💎      | `:gem:`                 | Code style changes (formatting, semicolons)     |
+| refactor | 🔨      | `:hammer:`              | Code refactoring                                |
+| perf     | 🚀      | `:rocket:`              | Performance improvements                        |
+| test     | 🚨      | `:rotating_light:`      | Adding or updating tests                        |
+| build    | 📦      | `:package:`             | Build system or external dependencies           |
+| ci       | 👷      | `:construction_worker:` | CI configuration files and scripts              |
+| chore    | 🔧      | `:wrench:`              | Other changes that don't modify src or test     |
+| revert   | ⏪      | `:rewind:`              | Reverts a previous commit                       |
 
 - check git history to see previous commit messages and make sure to follow the same format.
 

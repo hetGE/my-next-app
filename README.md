@@ -57,17 +57,43 @@ A production-ready Next.js template with TypeScript, Tailwind CSS, and best prac
 ```
 my-next-app/
 ├── app/                  # App Router directory
+│   ├── api/             # API routes
+│   │   └── hello/       # Example API endpoint
+│   ├── error.tsx        # Error boundary
+│   ├── global-error.tsx # Root error boundary
 │   ├── layout.tsx       # Root layout
+│   ├── loading.tsx      # Loading state
+│   ├── not-found.tsx    # 404 page
 │   ├── page.tsx         # Home page
+│   ├── robots.txt       # SEO robots file
+│   ├── sitemap.ts       # Dynamic sitemap
 │   └── globals.css      # Global styles
+├── components/          # React components
+│   ├── layout/         # Layout components
+│   │   ├── header.tsx  # Site header with navigation
+│   │   └── footer.tsx  # Site footer
+│   └── ui/             # UI components
+│       ├── button.tsx  # Button component
+│       ├── card.tsx    # Card component
+│       ├── input.tsx   # Input component
+│       └── skeleton.tsx # Skeleton loaders
+├── hooks/               # Custom React hooks
+│   ├── use-debounce.ts # Debounce hook
+│   ├── use-local-storage.ts # LocalStorage hook
+│   └── use-media-query.ts # Media query hook
+├── utils/               # Utility functions
+│   ├── cn.ts           # Class name merger
+│   └── format.ts       # Formatting utilities
+├── types/               # TypeScript definitions
+│   └── global.d.ts     # Global type definitions
 ├── public/              # Static assets
-├── components/          # React components (create as needed)
-├── lib/                 # Utility functions (create as needed)
-├── hooks/               # Custom React hooks (create as needed)
-├── stores/              # Zustand state stores (create as needed)
-├── utils/               # Helper functions (create as needed)
-├── types/               # TypeScript type definitions (create as needed)
+├── .github/             # GitHub templates
+│   ├── workflows/      # GitHub Actions
+│   └── ISSUE_TEMPLATE/ # Issue templates
+├── .vscode/             # VS Code configuration
+├── middleware.ts        # Next.js middleware
 ├── CLAUDE.md            # AI assistant guidelines
+├── LICENSE              # MIT license
 └── ...config files      # Various configuration files
 ```
 
@@ -102,6 +128,62 @@ Create a `.env.local` file for your environment variables:
 NEXT_PUBLIC_API_URL=your_api_url
 DATABASE_URL=your_database_url
 ```
+
+## 🧩 Built-in Components
+
+### UI Components
+- **Button** - Versatile button with multiple variants (primary, secondary, outline, ghost, danger)
+- **Card** - Container component with header, content, and footer sections
+- **Input** - Form input with label, error, and helper text support
+- **Skeleton** - Loading placeholders with multiple variants (text, circular, rectangular)
+
+### Layout Components
+- **Header** - Responsive navigation header with mobile menu
+- **Footer** - Full-featured footer with newsletter signup
+
+### Usage Example
+```tsx
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+
+<Card>
+  <CardHeader>
+    <CardTitle>Welcome</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <Button variant="primary" size="lg">Get Started</Button>
+  </CardContent>
+</Card>
+```
+
+## 🪝 Custom Hooks
+
+### Available Hooks
+- **useLocalStorage** - Persist state to localStorage with SSR safety
+- **useMediaQuery** - Responsive design with media query support
+- **useDebounce** - Debounce values for optimized performance
+
+### Usage Example
+```tsx
+import { useLocalStorage } from "@/hooks/use-local-storage";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { useDebounce } from "@/hooks/use-debounce";
+
+function MyComponent() {
+  const [theme, setTheme] = useLocalStorage("theme", "light");
+  const isMobile = useMediaQuery("(max-width: 640px)");
+  const debouncedSearch = useDebounce(searchTerm, 500);
+}
+```
+
+## 🛡️ Middleware
+
+The template includes middleware with:
+- Security headers (X-Frame-Options, CSP, etc.)
+- Maintenance mode support
+- Authentication examples (commented)
+- Geolocation routing examples
+- A/B testing setup
 
 ## 📜 Available Scripts
 
@@ -169,11 +251,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes using conventional commits with emojis (see CLAUDE.md for format)
+3. Commit your changes using conventional commits with emojis (see [CLAUDE.md](CLAUDE.md) for format)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-**Note**: Please refer to `CLAUDE.md` for coding standards and commit conventions.
+**Note**: Please refer to [`CLAUDE.md`](CLAUDE.md) for coding standards and commit conventions.
 
 ## 📝 License
 
