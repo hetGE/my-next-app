@@ -22,7 +22,7 @@ export default defineConfig([
         },
 
         rules: {
-            "max-len": ["error", { code: 120, tabWidth: 4 }],
+            "max-len": ["error", { code: 140, tabWidth: 4, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreComments: true }],
             "prefer-arrow-callback": ["error"],
             "prefer-template": ["error"],
             semi: ["error"],
