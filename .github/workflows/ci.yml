@@ -106,12 +106,20 @@ jobs:
           # Disable telemetry during build
           NEXT_TELEMETRY_DISABLED: 1
 
+      - name: Check build output
+        run: |
+          echo "Checking build output..."
+          ls -la
+          echo "Checking .next directory..."
+          ls -la .next || echo ".next directory not found"
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-files
           path: .next
           retention-days: 7
+          if-no-files-found: warn
 
   # Uncomment if you add tests
   # test:
