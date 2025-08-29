@@ -15,6 +15,34 @@ const compat = new FlatCompat({
 
 export default defineConfig([
     {
+        ignores: [
+            // Next environment config
+            "next-env.d.ts",
+
+            // Build outputs
+            ".next/**",
+            "out/**",
+            "dist/**",
+            "build/**",
+
+            // Dependencies
+            "node_modules/**",
+
+            // Environment files
+            ".env*.local",
+
+            // IDE
+            ".vscode/**",
+
+            // Testing
+            "coverage/**",
+
+            // Misc
+            "*.log",
+            ".DS_Store",
+        ],
+    },
+    {
         extends: compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
 
         plugins: {
@@ -22,7 +50,10 @@ export default defineConfig([
         },
 
         rules: {
-            "max-len": ["error", { code: 140, tabWidth: 4, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreComments: true }],
+            "max-len": [
+                "error",
+                { code: 140, tabWidth: 4, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreComments: true },
+            ],
             "prefer-arrow-callback": ["error"],
             "prefer-template": ["error"],
             semi: ["error"],
@@ -43,14 +74,8 @@ export default defineConfig([
             "check-file/folder-naming-convention": [
                 "error",
                 {
-                    // Allow Next.js special conventions: (groups), [dynamic], [[...optional]]
-                    "app/**/\\(.*\\)": "NEXT_JS_APP_ROUTER_CASE",
-                    "app/**/\\[.*\\]": "NEXT_JS_APP_ROUTER_CASE",
-                    "app/**/_*": "NEXT_JS_APP_ROUTER_CASE",
-                    // Allow temporary folders (for build process)
-                    "app/**/*.tmp": "NEXT_JS_APP_ROUTER_CASE",
                     // Enforce kebab-case for regular folders
-                    "app/**": "KEBAB_CASE",
+                    "app/**": "NEXT_JS_APP_ROUTER_CASE",
                     "components/**": "KEBAB_CASE",
                     "hooks/**": "KEBAB_CASE",
                     "lib/**": "KEBAB_CASE",
